@@ -3,15 +3,18 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 const express = require('express');
+const cors = require('cors');
 
 const getDefault = (req, res) => res.status(404).send('URL not found');
-
 const { getRandomImage, getImageList, getImage } = require('./controllers/background');
 
 const app = express();
-app.use('/background/random', getRandomImage);
-app.use('/background/group/:filter/:count?', getImageList);
-app.use('/background/:id', getImage);
+app.use(cors({
+  origin: '*',
+}));
+app.get('/background/random', getRandomImage);
+app.get('/background/group/:filter/:count?', getImageList);
+app.get('/background/:id', getImage);
 app.use(getDefault);
 
 if (process.env.NODE_ENV !== 'production') {
