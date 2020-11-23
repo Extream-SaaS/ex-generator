@@ -54,7 +54,7 @@ jobs:
          PROJECT_ID: ${{secrets.GCLOUD_PROJECT_ID}}
          APPLICATION_CREDENTIALS: ${{secrets.GCLOUD_CREDENTIALS}}
        with:
-         args: functions deploy content-generator --region europe-west2 --source ./ --runtime nodejs12 --entry-point generate --env-vars-file variables.yaml --trigger-http --allow-unauthenticated --retry
+         args: functions deploy content-generator --region europe-west2 --source ./ --runtime nodejs12 --entry-point generate --env-vars-file variables.yaml --trigger-http --allow-unauthenticated
 
      - uses: act10ns/slack@v1
        env:
