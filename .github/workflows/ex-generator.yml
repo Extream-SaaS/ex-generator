@@ -46,6 +46,8 @@ jobs:
        env:
          GCLOUD_PROJECT_ID: ${{ secrets.GCLOUD_PROJECT_ID }}
          ENVIRONMENT: 'production'
+         UNSPLASH_ACCESS: ${{ secrets.UNSPLASH_ACCESS }}
+         UNSPLASH_SECRET: ${{ secrets.UNSPLASH_SECRET }}
 
      - name: Deploy to GCP
        id: Deploy
